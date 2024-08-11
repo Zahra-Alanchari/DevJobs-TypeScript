@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const JobDescription = styled.div`
+export const JobDescription = styled.div<{darkMode:boolean}>`
   background-color: ${({ darkMode }) => (darkMode ? "white" : "#19202D")};
   border-radius: 5px;
   width: 327px;
@@ -27,7 +27,7 @@ export const Items = styled.ul`
 export const Detail = styled.li`
   color: #6e8098;
 `;
-export const Position = styled.li`
+export const Position = styled.li<{darkMode:boolean}>`
   color: ${({ darkMode }) => (darkMode ? "#19202d" : "white")};
 `;
 export const Location = styled.li`
@@ -74,7 +74,7 @@ export const Introduction = styled.div`
     width: 593px;
   }
 `;
-export const Title = styled.h3`
+export const Title = styled.h3<{darkMode:boolean}>`
   color: ${({ darkMode }) => (darkMode ? "black" : "white")};
   margin: 30px 0;
 `;
@@ -86,7 +86,7 @@ export const ListDic = styled.li`
   list-style-type: disc;
   margin: 15px;
 `;
-export const Footer = styled.div`
+export const Footer = styled.div<{darkMode:boolean}>`
   display: none;
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -115,7 +115,7 @@ export const FooterApply = styled.button`
     color: white;
   }
 `;
-export const FooterPosition = styled.div`
+export const FooterPosition = styled.div<{darkMode:boolean}>`
   display: none;
   color: ${({ darkMode }) => (darkMode ? "#19202d" : "white")};
   @media screen and (min-width: 768px) {

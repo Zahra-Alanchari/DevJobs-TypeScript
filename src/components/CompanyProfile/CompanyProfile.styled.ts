@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Profile = styled.div`
+export const Profile = styled.div<{darkMode:boolean}>`
   background-color: ${({ darkMode }) => (darkMode ? "white" : "#19202D")};
   color: ${({ darkMode }) => (darkMode ? "black" : "white")};
   width: 327px;
@@ -31,7 +31,7 @@ export const Profile = styled.div`
     justify-content: space-evenly;
   }
 `;
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<{logoColor?:string}>`
   background-color: ${({ logoColor }) => logoColor || "transparent"};
   display: flex;
   align-items: center;

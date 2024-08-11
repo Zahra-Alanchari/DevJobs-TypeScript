@@ -1,13 +1,14 @@
 import React from "react";
-import Moon from "../../icon/moon";
+import { useSelector } from "react-redux";
+import { Head, HeaderIcon } from "./Header.styled";
+import { RootState } from "../../Type/type";
 import SunIcon from "../../icon/SunIcon";
 import LogoIcon from "../../icon/LogoIcon";
 import ToggleIcon from "../../icon/ToggleIcon";
-import { useSelector } from "react-redux";
-import { Head, HeaderIcon } from "./Header.styled";
+import Moon from "../../icon/moon";
 
 export default function Header() {
-  const mode = useSelector((state) => state.job.lightMode);
+  const mode = useSelector((state:RootState) => state.job.lightMode);
   return (
     <Head darkMode={mode}>
       <HeaderIcon>

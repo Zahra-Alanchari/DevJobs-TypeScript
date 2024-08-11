@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainContent = styled.div`
+export const MainContent = styled.div<{darkMode:boolean}>`
 width: 375px;
 margin: 0 auto;
 background-color: ${({ darkMode }) =>

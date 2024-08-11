@@ -1,31 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import FilterIcon from "../../icon/FilterIcon";
 import React, { useState } from "react";
-import {
-  fullFilter,
-  setLocationFilter,
-  updateInput,
-  workTimeFilter,
-} from "../../redux/Slice";
-import SearchIcon from "../../icon/SearchIcon";
 import { CloseModalBtn, Dialog, InputContainer, LocBtn, ModalLocBtn, OverLay, SearchIconbtn, TextBtn, WorkTime } from "./InputText.styled";
+import { RootState } from "../../Type/type";
+import { fullFilter, setLocationFilter, updateInput, workTimeFilter } from "../../redux/Slice";
+import SearchIcon from "../../icon/SearchIcon";
+import FilterIcon from "../../icon/FilterIcon";
 
 
 export default function InputText() {
   const [open, setOpen] = useState(false);
-  const mode = useSelector((state) => state.job.lightMode);
-  const inputContent = useSelector((state) => state.job.input);
-  const locationInput = useSelector((state) => state.job.location);
-  const data = useSelector((state) => state.job.job);
+  const mode = useSelector((state:RootState) => state.job.lightMode);
+  const inputContent = useSelector((state:RootState) => state.job.input);
+  const locationInput = useSelector((state:RootState) => state.job.location);
+  const data = useSelector((state:RootState) => state.job.job);
   const dispatch = useDispatch();
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const data = e.target.value.toLowerCase();
     dispatch(updateInput(data));
   }
-  const handleLocationChange = (e) => {
+  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setLocationFilter(e.target.value));
   };
-  function handleCheck(e) {
+  function handleCheck(e: React.ChangeEvent<HTMLInputElement>) {
     const status = e.target.checked;
     dispatch(workTimeFilter(status));
   }
@@ -37,17 +33,19 @@ export default function InputText() {
     setOpen(false);
   }
 
-  const selectedTitleData = useSelector((state) => state.job.input);
-  const selectedLocationData = useSelector((state) => state.job.location);
-  const selectedTimeData = useSelector((state) => state.job.fullTime);
-  const showFilteredData = useSelector((state) => state.job.filteredData);
+  const selectedTitleData = useSelector((state:RootState) => state.job.input);
+  const selectedLocationData = useSelector((state:RootState) => state.job.location);
+  const selectedTimeData = useSelector((state:RootState) => state.job.fullTime);
+  const showFilteredData = useSelector((state:RootState) => state.job.filteredData);
 
   function handleGetJob() {
     const filterData = data.filter((job) => {
       if (
         selectedTitleData === "" &&
         selectedLocationData === "" &&
-        (selectedTimeData === "" || selectedTimeData === false)
+        (selectedTimeData === "" 
+          // || selectedTimeData === false
+        )
       ) {
         return job;
       } else {
@@ -92,7 +90,7 @@ export default function InputText() {
         <span>Search</span>
       </SearchIconbtn>
       {open && (
-        <OverLay>
+        <OverLay darkMode={mode}>
           <Dialog open darkMode={mode}>
             <ModalLocBtn darkMode={mode}
               type="text"

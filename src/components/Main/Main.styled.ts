@@ -12,7 +12,7 @@ export const MainContent = styled.div`
     width: 1440px;
   }
 `;
-export const MainBody = styled.div`
+export const MainBody = styled.div<{darkMode:boolean}>`
   width: 375px;
   background-color: ${({ darkMode }) =>darkMode ? "rgb(244, 246, 248)" : "#121721"};
   position: absolute;

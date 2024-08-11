@@ -1,9 +1,12 @@
 import styled from "styled-components";
+//@ts-ignore
 import bgPatternHeader from "../../assets/mobile/bg-pattern-header.svg";
+//@ts-ignore
 import tbPatternHeader from "../../assets/tablet/bg-pattern-header.svg";
+//@ts-ignore
 import dsPatternHeader from "../../assets/desktop/bg-pattern-header.svg";
 
-export const Head = styled.div`
+export const Head = styled.div<{darkMode:boolean}>`
 height: 136px;
 width: 375px;
 margin: 0 auto;

@@ -1,51 +1,52 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "./src/index.jsx"),
-  mode: "development",
+  mode: 'development',
+  entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
-    extensions: [".jsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ],
+            },
           },
         ],
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: "file-loader",
-            options: {
-              name: "[path][name].[ext]",
-              context: path.resolve(__dirname, "..", "src"), // Ensure the context is set correctly
-              outputPath: "assets/", // Customize the output path if necessary
-            },
+            loader: 'url-loader',
           },
         ],
-      }
+      },
     ],
   },
   output: {
-    path: path.resolve(__dirname, "..", "./dist"),
-    filename: "main.js",
+    path: path.resolve(__dirname, '..', './dist'),
+    filename: 'main.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./src/index.html"),
-    })
-    // "babel-plugin-styled-components",
+      template: path.resolve(__dirname, '..', './src/index.html'),
+    }),
   ],
-  stats: "errors-only",
+  stats: 'errors-only',
 };

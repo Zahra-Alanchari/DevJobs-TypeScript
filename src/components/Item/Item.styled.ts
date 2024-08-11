@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Items = styled.ul`
+export const Items = styled.ul<{darkMode:boolean}>`
   background-color: ${({ darkMode }) => (darkMode ? "white" : "#19202D")};
   padding: 22px;
   margin: 23px;
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
 export const Detail = styled.li`
   color: #6e8098;
 `;
-export const Position = styled.li`
+export const Position = styled.li<{darkMode:boolean}>`
   color: ${({ darkMode }) => (darkMode ? "#19202d" : "white")};
 `;
 export const Location = styled.li`
@@ -54,7 +54,7 @@ export const WrapperLink = styled(Link)`
   display: flex;
   flex-wrap: wrap;
 `;
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<{logoColor?:string}>`
   background-color: ${({ logoColor }) => logoColor || "transparent"};
   display: flex;
   align-items: center;

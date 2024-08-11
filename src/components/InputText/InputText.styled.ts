@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TextBtn = styled.input`
+export const TextBtn = styled.input<{darkMode:boolean}>`
   width: 315px;
   height: 80px;
   border-radius: 5px;
@@ -33,7 +33,7 @@ export const TextBtn = styled.input`
     left: 145px;
   }
 `;
-export const LocBtn = styled.input`
+export const LocBtn = styled.input<{darkMode:boolean}>`
   display: none;
   border-radius: 5px;
   background-color: ${({ darkMode }) => (darkMode ? "white" : "#19202D")};
@@ -94,7 +94,7 @@ export const SearchIconbtn = styled.button`
   }
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{darkMode:boolean}>`
   & input + label {
     display: none;
     margin-right: 82px;
@@ -131,7 +131,7 @@ export const InputContainer = styled.div`
     left: 170px;
   }
 `;
-export const Dialog = styled.dialog`
+export const Dialog = styled.dialog<{darkMode:boolean}>`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -144,7 +144,7 @@ export const Dialog = styled.dialog`
   width: 280px;
   height: 217px;
 `;
-export const OverLay = styled.div`
+export const OverLay = styled.div<{darkMode:boolean}>`
   position: fixed;
   top: 0;
   width: 375px;
@@ -168,7 +168,7 @@ export const CloseModalBtn = styled.button`
   cursor: pointer;
   color: white;
 `;
-export const ModalLocBtn = styled.input`
+export const ModalLocBtn = styled.input<{darkMode:boolean}>`
   position: absolute;
   left: 0;
   border-bottom: 1px solid lightgray;
@@ -183,7 +183,7 @@ export const ModalLocBtn = styled.input`
     color: ${({ darkMode }) => (darkMode ? "black" : "white")};
   }
 `;
-export const WorkTime = styled.label`
+export const WorkTime = styled.label<{darkMode:boolean}>`
   position: absolute;
   top: 126px;
   left: 40px;
