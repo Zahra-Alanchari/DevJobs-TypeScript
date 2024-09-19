@@ -1,5 +1,5 @@
-const webpack = require('webpack')
-const ReactRefreshWebpackPlugin = require('react-refresh-webpack-plugin')
+const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -7,6 +7,7 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    historyApiFallback: true, // For SPA routing
   },
   plugins: [
     new ReactRefreshWebpackPlugin(),
@@ -14,4 +15,4 @@ module.exports = {
       'process.env.name': JSON.stringify('Vishwas'),
     }),
   ],
-}
+};
