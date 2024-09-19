@@ -6,9 +6,10 @@ export default function CompanyProfile() {
   const mode = useSelector((state:RootState) => state.job.lightMode);
   const data = useSelector((state:RootState) => state.job.job);
   const id = useSelector((state:RootState) => state.job.id);
-  const selectedJob = data.find((item) => item.id === id);
+  const selectedJob =id && data.find((item) => item.id === +id);
 
   return (
+    selectedJob &&
     <>
       <Profile darkMode={mode}>
         <LogoContainer logoColor={selectedJob?.logoBackground}>
